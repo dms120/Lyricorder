@@ -1,0 +1,100 @@
+<ion-header>
+    <ion-navbar class="force-back-button" color="primary">
+        <ion-title>
+            {{lyric.title}}
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button icon-only (click)="toggleEdit()">
+                <ion-icon name="{{isPreview ? 'create' : 'checkmark'}}"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="addOrShare($event)">
+                <ion-icon name="{{isPreview ? 'share' : 'add'}}"></ion-icon>
+            </button>
+            <button ion-button icon-only (click)="parentObj.utils.openAmbientSounds()">
+                <ion-icon name="musical-notes" [style.color]="parentObj.utils.isSoundPlaying ? 'orange' : 'inherit'"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <ion-grid>
+            <ion-row>
+                <ion-col col-12>
+                    <ion-item>
+                        <ion-label>Tunning</ion-label>
+                        <ion-select [disabled]="isPreview" [(ngModel)]="lyric.tuning">
+                            <ion-option value="none">No Tunning</ion-option>
+                            <ion-option value="standard">Standard (E,A,D,G,B,E)</ion-option>    
+                            <ion-option value="halfStep">Half Step (D#, G#, C#, F#, A#, D#)</ion-option>
+                            <ion-option value="fullStep">Full Step Down (D, G, C, F, A, D)</ion-option>
+                            <ion-option value="oneHalfStep">1.5 Steps Down	(C#, F#, B, E, G#, C#)</ion-option>
+                            <ion-option value="twoSteps">Two Steps Down (C, F, A#, D#, G, C)</ion-option>
+                            <ion-option value="dropD">Drop D (D,A,D,G,B,E)</ion-option>
+                            <ion-option value="dropD#">Drop C# (C#, G#, C#, F#, A#, D#)</ion-option>
+                            <ion-option value="dropC">Drop C (C, G, C, F, A, D)</ion-option>
+                            <ion-option value="dropB">Drop B (B, F#, B, E, G#, C#)</ion-option>
+                            <ion-option value="dropA#">Drop A# (A#, F, A#, D#, G, C)</ion-option>
+                            <ion-option value="doubleDropD">Double Drop D (D, A, D, G, B, D)</ion-option>
+                            <ion-option value="openD">Open D (D, A, D, F#, A, D)</ion-option>
+                            <ion-option value="openDMinor">Open D Minor (D, A, D, F, A, D)</ion-option>
+                            <ion-option value="openG">Open G (D, G, D, G, B, D)</ion-option>
+                            <ion-option value="openGMinor">Open G Minor (D, G, D, G, A#, D)</ion-option>
+                            <ion-option value="openC">Open C (C, G, C, G, C, E)</ion-option>
+                            <ion-option value="openCMinor">Open C Minor (C, G, C, G, C, D#)</ion-option>
+                            <ion-option value="other">Other</ion-option>
+                        </ion-select>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-12>
+                    <ion-item>
+                        <ion-label>Capo</ion-label>
+                        <ion-select [disabled]="isPreview" [(ngModel)]="lyric.capo">
+                            <ion-option value="0">No Capo</ion-option>
+                            <ion-option value="1">1st Fret</ion-option>
+                            <ion-option value="2">2nd Fret</ion-option>
+                            <ion-option value="3">3rd Fret</ion-option>
+                            <ion-option value="4">4th Fret</ion-option>
+                            <ion-option value="5">5th Fret</ion-option>
+                            <ion-option value="6">6th Fret</ion-option>
+                            <ion-option value="7">7th Fret</ion-option>
+                            <ion-option value="8">8th Fret</ion-option>
+                            <ion-option value="9">9th Fret</ion-option>
+                            <ion-option value="10">10th Fret</ion-option>
+                            <ion-option value="11">11th Fret</ion-option>
+                            <ion-option value="12">12th Fret</ion-option>
+                        </ion-select>
+                    </ion-item>
+
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <ion-item>
+            <ion-range [disabled]="isPreview" color="secondary" min="0" max="10" step="1" [(ngModel)]="lyric.speed">
+                <ion-icon range-left small name="speedometer"></ion-icon>
+                <ion-icon range-right name="speedometer"></ion-icon>
+            </ion-range>
+        </ion-item>
+
+        <ion-item>
+            <ion-range [disabled]="isPreview" color="secondary" min="0" max="10" step="1" [(ngModel)]="lyric.happiness">
+                <ion-icon range-left small name="sad"></ion-icon>
+                <ion-icon range-right name="happy"></ion-icon>
+            </ion-range>
+        </ion-item>
+
+        <ion-item>
+            <ion-textarea [disabled]="isPreview" placeholder="Type your notes here" fz-elastic rows="15" type="text" style="width: 100%; border: none;"
+                [(ngModel)]="lyric.notes"></ion-textarea>
+        </ion-item>
+
+    </ion-list>
+
+</ion-content>

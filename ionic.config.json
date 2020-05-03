@@ -1,0 +1,7 @@
+{
+  "name": "Lyricorder",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

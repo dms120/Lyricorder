@@ -1,0 +1,118 @@
+
+audio-recorder.center {
+	left: 0;
+    button[center][ion-fab] {
+        left: 50%;
+        margin-left: -20px;
+    }  
+    button[right][ion-fab] {
+        right: 0%;
+    }   
+    button[middleLeft][ion-fab]{
+        left: 50%;
+        margin-left: -68px;
+    } 
+    button[middleRight][ion-fab]{
+        left: 50%;
+        margin-left: 45px;
+    } 
+}
+
+
+audio-recorder {
+    position: fixed;
+    width: calc(100% - 16px); // On moblie should be 100%
+
+    .hide{
+        display: none;
+    }
+    
+    .audio-recorder {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        position: absolute;
+        button[ion-fab] {
+            position:absolute;
+        }
+
+        .mainContainer{
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            margin-top: 22px;
+        }
+
+        .closeButton{
+            top: -5px;
+            background-color: #f4f4f4; 
+            box-shadow: none;
+            color: #607d8b;
+        }
+
+        .playerDiv{
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        .waveformContainer{
+            width: calc(100% - 130px);
+            display: inline-block;
+        } 
+
+        .timeLabel{
+            width: 50px;
+            display: inline-block;
+            line-height: 90px;
+            margin-bottom: 0px;
+            margin-top: 0px;
+        }
+    }
+    }
+
+    
+
+audio-recorder:not(.activated) {
+    height: 100px;
+    .playerDiv{
+        display: none;
+    }
+    .closeButton{
+        display: none;
+    }
+}
+
+audio-recorder.activated {
+    height: 185px;  
+
+    .mainContainer{
+        background-color: #f4f4f4; 
+    }
+    
+}
+
+audio-recorder.opened {
+    .backdrop {
+    }
+    button[ion-fab] {
+    }
+}
+audio-recorder:not(.activated).opened {
+    
+}
+audio-recorder:not(.activated).closed {
+}
+audio-recorder.closed {
+    
+}
+
+.controlsContainer{
+    height: 65px;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.hide{
+    display: none;
+}

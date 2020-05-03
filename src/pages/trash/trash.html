@@ -1,0 +1,40 @@
+    <ion-header>
+        <ion-navbar color="primary">
+            <ion-buttons left>
+                <button ion-button menuToggle icon-only>
+                    <ion-icon name="menu"></ion-icon>
+                </button>
+            </ion-buttons>
+            <ion-title text-center>
+                Trash
+            </ion-title>
+        </ion-navbar>
+    </ion-header>
+    
+    
+    <ion-content padding>
+        This items will be permanently removed {{settings.deleteLyricsAfter}} days after being moved here
+        <ion-list class="main-list">
+            <ion-item-sliding *ngFor="let item of trashItems; let i = index">
+                <ion-item id="item-{{i}}" (click)="viewItem(item)"> 
+                    <div>
+                        <div class="titleTextHolder">
+                            <p class="title">{{item.title}}</p>
+                            <p class="text">{{item.text }}</p>
+                        </div>
+                        <div class="listDateHolder">
+                            <p class="dayMonth">{{getDay(item.createdDate)}} {{getMonth(item.createdDate)}}</p>
+                            <p class="year">{{getYear(item.createdDate)}}</p>
+                        </div>
+    
+                    </div>
+                </ion-item>
+    
+                <ion-item-options>
+                    <button icon-left info (click)="restoreItem(item)">
+                        <ion-icon name="refresh"></ion-icon>Restore</button>
+                </ion-item-options>
+            </ion-item-sliding>
+        </ion-list>
+    
+    </ion-content>

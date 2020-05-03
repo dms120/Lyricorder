@@ -1,0 +1,61 @@
+<ion-list>
+    <button (click)="toggleScrolling()" ion-item detail-push>
+        <ion-icon name="arrow-round-down" item-start></ion-icon>
+        {{isScrolling ? "Stop Scrolling" : "Start Scrolling"}}
+    </button>
+</ion-list>
+<ion-list radio-group [(ngModel)]="scrollSpeed">
+    <ion-list-header>
+        Speed
+    </ion-list-header>
+
+    <ion-item>
+        <ion-label>Fast</ion-label>
+        <ion-radio (ionSelect)="startScrolling()" value="5"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Normal</ion-label>
+        <ion-radio (ionSelect)="startScrolling()" value="3" checked="true"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Slow</ion-label>
+        <ion-radio (ionSelect)="startScrolling()" value="1"></ion-radio>
+    </ion-item>
+</ion-list>
+
+<ion-list radio-group [(ngModel)]="scrollDelay">
+    <ion-list-header>
+        Auto-Start
+    </ion-list-header>
+
+    <ion-item>
+        <ion-label>Never</ion-label>
+        <ion-radio (ionSelect)="setScrollDelay()" value="0"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>10 Sec (default)</ion-label>
+        <ion-radio (ionSelect)="setScrollDelay()" value="10"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>15 Sec</ion-label>
+        <ion-radio (ionSelect)="setScrollDelay()" value="15"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>20 Sec</ion-label>
+        <ion-radio (ionSelect)="setScrollDelay()" value="20"></ion-radio>
+    </ion-item>
+
+</ion-list>
+
+<ion-list>
+
+    <ion-item>
+        <ion-label>Stop on bottom</ion-label>
+        <ion-toggle color="secondary" [(ngModel)]="stopOnBottom" (ionChange)="setStopOnBottom()"></ion-toggle>
+    </ion-item>
+</ion-list>

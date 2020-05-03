@@ -1,0 +1,73 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-buttons left>
+            <button ion-button menuToggle icon-only>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title text-center>
+            Lyricorder
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="utils.openAmbientSounds()">
+                <ion-icon name="musical-notes" [style.color]="utils.isSoundPlaying ? '#03a9f4' : 'inherit'"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+    <ion-toolbar color="primary">
+        <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()" placeholder="Type here..">
+        </ion-searchbar>
+
+        <ion-buttons end>
+            <button ion-button icon-only (click)="showFilters()">
+                <ion-icon name="funnel" [style.color]="filterOptions.shouldFilter ? 'orange' : 'inherit'"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div *ngIf="searching" class="spinner-container">
+        <ion-spinner></ion-spinner>
+    </div>
+
+    <div id="playerDiv" class="{{isSomeTrackPlaying() ? '' : 'hidden'}}">
+        <div id="waveform" class="waveform"></div>
+    </div>
+
+    <ion-list class="main-list">
+        <ion-item-sliding *ngFor="let item of filteredItems; let i = index">
+            <ion-item id="item-{{i}}" (click)="viewItem(item)">
+                <div item-left class="mainListPlayButtonHolder">
+                    <button (click)="playCurrentItem($event, item, i, div)" class="mainListPlayButton" [hidden]="!item._attachments" ion-fab
+                        mini color="light">
+                        <ion-icon name="{{isPlaying[i] ? 'square' : 'play'}}"></ion-icon>
+                    </button>
+                </div>
+                <div>
+                    <div class="titleTextHolder">
+                        <p class="title">{{item.title}}</p>
+                        <p class="text">{{item.text }}</p>
+                    </div>
+                    <div class="listDateHolder">
+                        <p class="dayMonth">{{getDay(item.createdDate)}} {{getMonth(item.createdDate)}}</p>
+                        <p class="year">{{getYear(item.createdDate)}}</p>
+                    </div>
+                </div>
+
+                <div id="playerContainer" class="{{isPlaying[i] ? '' : 'hidden'}}">
+                </div>
+            </ion-item>
+            <ion-item-options>
+                <button info (click)="addItemToTrash(item)">
+                    <ion-icon name="trash"></ion-icon> Add to Trash</button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+
+    <ion-fab right bottom>
+        <button ion-fab color="secondary" (click)="addItem()">
+            <ion-icon name="add"></ion-icon>
+        </button>
+    </ion-fab>
+</ion-content>

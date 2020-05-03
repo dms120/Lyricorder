@@ -1,0 +1,68 @@
+page-lyrics-tab {
+	.previewHeader{
+		font-weight: bold;
+		padding-bottom: 0px;
+	}
+	.previewText{
+		white-space: pre-line;
+        margin-top: -15px;
+		p.song.show-chords	 {
+		    line-height: 2.3;
+		}
+
+		p.song sup {
+		  display: none;
+		}
+
+		p.song.show-chords p {
+		  margin-bottom:2em;
+		}
+		p.song.show-chords sup {
+          font-size: 1.3rem;
+		  top: -1em;
+		  display:inline-flex;
+		  color:color($colors, secondary, base);
+		  font-weight:bold;
+		  font-family:Arial, Helvetica, sans-serif;
+		}
+    }
+    
+    #previewContainer.extend{
+        margin-bottom: 125px;              
+    }
+
+	.editorContainer{
+		height: 100%;
+
+		ion-item.textArea{
+			height: 100%;
+
+			ion-label{
+				top: 0;
+			    display: inline-block;
+			    width: 100%;
+			    position: fixed;
+				height: calc(100% - 55px);
+
+				textarea{
+					height: 100%;
+				}
+			}
+		}
+    }
+    
+    .smaller .card-md p{
+        font-size: 1.4rem;
+    }
+
+    .larger .card-md p{
+        font-size: larger;
+    }
+
+	.hide{
+		display: none;
+	}
+
+	
+
+}

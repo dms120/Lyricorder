@@ -1,0 +1,77 @@
+<div class="audio-recorder">
+    <button right ion-fab mini (click)="closeButton()" class="closeButton" color="primary">
+        <ion-icon name="close"></ion-icon>
+    </button>
+    <div class="mainContainer">
+        <div class="playerDiv">
+            <ion-label class="timeLabel">{{currentTime}}</ion-label>
+            <div class="waveformContainer">
+                <div>
+                    <div id="editorWaveform" class="editorWaveform"></div>
+                </div>
+            </div>
+            <ion-label class="timeLabel">{{duration}}</ion-label>
+        </div>
+
+        <div class="controlsContainer">
+            <button *ngIf="isRecording || isSavePending" mini middleLeft (click)="stopAndDiscardRecording()" ion-fab color="primary">
+                <ion-icon name="{{isSavePending ? 'trash' : 'close'}}"></ion-icon>
+            </button>
+
+            <button *ngIf="isSavePending" mini middleRight (click)="saveRecord()" ion-fab color="secondary">
+                <ion-icon name="checkmark"></ion-icon>
+            </button>
+
+            <button *ngIf="!mainButton.hide" center (click)="mainButtonAction()" ion-fab color="{{mainButton.color}}">
+                <ion-icon name="{{mainButton.icon}}"></ion-icon>
+            </button>
+
+            <button right ion-fab mini (click)="openRecordsList()" color="primary">
+                <ion-icon name="list"></ion-icon>
+            </button>
+        </div>
+    </div>
+
+
+    <ion-row style="display:none;" [style.transform]="">
+        <ion-col>
+            <button (click)="stopRecording()" *ngIf="isRecording" ion-button clear color="light">
+                <div>
+                    <ion-icon name="square"></ion-icon>
+                </div>
+            </button>
+            <button (click)="startPlayback()" *ngIf="!isRecording && !isPlaying" ion-button clear color="light">
+                <div>
+                    <ion-icon name="play"></ion-icon>
+                </div>
+            </button>
+            <button (click)="pausesPlayback()" *ngIf="isPlaying" ion-button clear color="light">
+                <div>
+                    <ion-icon name="pause"></ion-icon>
+                </div>
+            </button>
+            <button (click)="stopsPlayback()" *ngIf="isPlaying" ion-button clear color="light">
+                <div>
+                    <ion-icon name="square"></ion-icon>
+                </div>
+            </button>
+        </ion-col>
+        <ion-col>
+            <button (click)="closeButton()" *ngIf="!isSavePending" ion-button clear color="light">
+                <div>
+                    <ion-icon name="close"></ion-icon>
+                </div>
+            </button>
+            <button (click)="saveRecord()" *ngIf="isSavePending" class="save" ion-button clear color="light">
+                <div>
+                    <ion-icon name="checkmark"></ion-icon>
+                </div>
+            </button>
+            <button (click)="deleteFile()" *ngIf="isSavePending" class="remove" ion-button clear color="light">
+                <div>
+                    <ion-icon name="trash"></ion-icon>
+                </div>
+            </button>
+        </ion-col>
+    </ion-row>
+</div>

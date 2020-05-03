@@ -1,0 +1,47 @@
+.rhymesList{
+	h2{
+		text-align: center;
+	}
+}
+
+.dictionaryList{
+	h2.definitionType{
+		font-style: italic;
+		font-weight: bold;
+		font-size: 90%;
+	}
+	ion-label {
+	    white-space: inherit;
+	}
+}
+
+
+.themesGrid{
+	bottom: inherit;
+    left: 0;
+    position: absolute;
+    h2{
+		text-align: center;
+	}
+    button{
+    	width: 100%;
+    }
+    ion-col.col{
+        padding-bottom: 0px;
+        padding-top: 2px;
+    }
+}
+
+.moodWordsList{
+	overflow-y: scroll;
+    height: calc(100% - 170px);
+    margin-bottom: 0px;
+
+    .input-wrapper{
+    	text-align: center;
+    }
+}
+
+.scroll-content.main-container{
+	margin-bottom: 0px;
+}

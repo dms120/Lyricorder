@@ -1,0 +1,37 @@
+<ion-menu [content]="mycontent">
+
+    <ion-content>
+        <ion-navbar color="primary">
+            <ion-title>Menu</ion-title>
+        </ion-navbar>
+        <ion-list>
+            <button ion-item detail-none ion-item (click)="openPage('HomePage')">
+                <ion-icon name="document" item-start></ion-icon>
+                My Lyrics
+            </button>
+            <button ion-item detail-none (click)="openPage('IdeasPage')">
+                <ion-icon name="bulb" item-start></ion-icon>
+                My Ideas
+            </button>
+            <button ion-item detail-none (click)="openPage('TrashPage')">
+                <ion-icon name="trash" item-start></ion-icon>
+                Trash
+            </button>
+            <button ion-item detail-none (click)="openPage('Settings')">
+                <ion-icon name="settings" item-start></ion-icon>
+                Settings
+            </button>
+            <button ion-item detail-none (click)="openPage('AboutPage')">
+                <ion-icon name="information-circle" item-start></ion-icon>
+                About
+            </button>
+
+            <button menuClose ion-item detail-none>
+                <ion-icon name="close" item-start></ion-icon>
+                Close
+            </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<ion-nav #mycontent [root]="rootPage"></ion-nav>

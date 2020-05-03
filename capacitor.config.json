@@ -1,0 +1,19 @@
+{
+  "appId": "com.lyricorder",
+  "appName": "Lyricorder",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {
+    "preferences": {
+      "webviewbounce": "false",
+      "UIWebViewBounce": "false",
+      "DisallowOverscroll": "true",
+      "android-minSdkVersion": "16",
+      "BackupWebStorage": "none",
+      "SplashMaintainAspectRatio": "true",
+      "FadeSplashScreenDuration": "300",
+      "SplashShowOnlyFirstTime": "false"
+    }
+  }
+}

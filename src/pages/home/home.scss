@@ -1,0 +1,66 @@
+page-home {
+	.spinner-container {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+  .main-list{
+    .mainListPlayButtonHolder{
+      min-width: 56px;
+      margin-right: 0px;
+
+      button.mainListPlayButton{
+      margin-left: 0px;
+        ion-icon{
+          font-size: 1.8rem;
+          color: color($colors, primary, base);
+        }
+      }
+    }
+    .titleTextHolder{
+      display: inline-block;
+      width: calc(100% - 60px);
+
+      p.title{
+        font-size: 1.15em;
+        font-weight: bold;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      p.text{
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    .listDateHolder{
+        width: 45px;
+        display: inline-block;
+        float: right;
+        text-align: center;
+        font-weight: bold;
+
+        p.dayMonth{
+          font-size: 0.75em;
+        }
+        p.year{
+          font-size: 0.8em;
+        }  
+    }
+  }
+}
+
+.item-md, .item-ios {
+      h2 {
+          color: rgba($color: #000, $alpha: .87);
+      }
+      p {
+          color: rgba($color: #000, $alpha: .54);
+      }
+  }
+
+  .hidden{
+    display:none;
+  }

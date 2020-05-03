@@ -1,0 +1,17 @@
+<!-- Generated template for the IdeasManager component -->
+<div class="IdeasManager">
+    <ion-list class="ideas-list">
+        <ion-item-sliding *ngFor="let idea of ideas">
+            <ion-item (click)="copy(idea)">
+                <div>
+                    <p class="title">{{idea.text}}</p>
+                </div>
+            </ion-item>
+
+            <ion-item-options>
+                <button info (click)="delete(idea)">
+                    <ion-icon name="trash"></ion-icon>Delete</button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+</div>

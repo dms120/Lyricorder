@@ -1,0 +1,169 @@
+<ion-header>
+
+    <ion-navbar color="secondary">
+        <ion-title>Sounds</ion-title>
+    </ion-navbar>
+
+    <ion-toolbar no-border-top>
+        <ion-segment [(ngModel)]="soundsType">
+            <ion-segment-button value="ambience">
+                Set your sound environment
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+    <div [ngSwitch]="soundsType">
+        <div *ngSwitchCase="'ambience'">
+            <ion-grid class="soundsGrid">
+                <ion-row>
+                    <ion-col col-2>
+                        <button #btn1 ion-fab color="{{isPlaying.fire ? 'secondary' : 'primary'}}" (click)="playSound('fire')">
+                            <ion-icon name="flame"></ion-icon>
+                        </button>
+                    </ion-col>
+
+                    <ion-col col-10>
+                        <ion-item>
+                            <ion-range min="1" max="10" step="1" [(ngModel)]="volume.fire" (ionChange)="updateVolume('fire')">
+                                <ion-icon range-left small name="volume-down"></ion-icon>
+                                <ion-icon range-right name="volume-up"></ion-icon>
+                            </ion-range>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col col-2>
+                        <button #btn1 ion-fab color="{{isPlaying.garden ? 'secondary' : 'primary'}}" (click)="playSound('garden')">
+                            <ion-icon name="flower"></ion-icon>
+                        </button>
+                    </ion-col>
+
+                    <ion-col col-10>
+                        <ion-item>
+                            <ion-range min="1" max="10" step="1" [(ngModel)]="volume.garden" (ionChange)="updateVolume('garden')">
+                                <ion-icon range-left small name="volume-down"></ion-icon>
+                                <ion-icon range-right name="volume-up"></ion-icon>
+                            </ion-range>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col col-2>
+                        <button #btn1 ion-fab color="{{isPlaying.rain ? 'secondary' : 'primary'}}" (click)="playSound('rain')">
+                            <ion-icon name="rainy"></ion-icon>
+                        </button>
+                    </ion-col>
+
+                    <ion-col col-10>
+                        <ion-item>
+                            <ion-range min="1" max="10" step="1" [(ngModel)]="volume.rain" (ionChange)="updateVolume('rain')">
+                                <ion-icon range-left small name="volume-down"></ion-icon>
+                                <ion-icon range-right name="volume-up"></ion-icon>
+                            </ion-range>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col col-2>
+                        <button #btn1 ion-fab color="{{isPlaying.seaside ? 'secondary' : 'primary'}}" (click)="playSound('seaside')">
+                            <ion-icon name="sunny"></ion-icon>
+                        </button>
+                    </ion-col>
+
+                    <ion-col col-10>
+                        <ion-item>
+                            <ion-range min="1" max="10" step="1" [(ngModel)]="volume.seaside" (ionChange)="updateVolume('seaside')">
+                                <ion-icon range-left small name="volume-down"></ion-icon>
+                                <ion-icon range-right name="volume-up"></ion-icon>
+                            </ion-range>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col col-2>
+                        <button #btn1 ion-fab color="{{isPlaying.storm ? 'secondary' : 'primary'}}" (click)="playSound('storm')">
+                            <ion-icon name="thunderstorm"></ion-icon>
+                        </button>
+                    </ion-col>
+
+                    <ion-col col-10>
+                        <ion-item>
+                            <ion-range min="1" max="10" step="1" [(ngModel)]="volume.storm" (ionChange)="updateVolume('storm')">
+                                <ion-icon range-left small name="volume-down"></ion-icon>
+                                <ion-icon range-right name="volume-up"></ion-icon>
+                            </ion-range>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col col-2>
+                        <button #btn1 ion-fab color="{{isPlaying.moon ? 'secondary' : 'primary'}}" (click)="playSound('moon')">
+                            <ion-icon name="moon"></ion-icon>
+                        </button>
+                    </ion-col>
+
+                    <ion-col col-10>
+                        <ion-item>
+                            <ion-range min="1" max="10" step="1" [(ngModel)]="volume.moon" (ionChange)="updateVolume('moon')">
+                                <ion-icon range-left small name="volume-down"></ion-icon>
+                                <ion-icon range-right name="volume-up"></ion-icon>
+                            </ion-range>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col col-2>
+                        <button #btn1 ion-fab color="{{isPlaying.water ? 'secondary' : 'primary'}}" (click)="playSound('water')">
+                            <ion-icon name="water"></ion-icon>
+                        </button>
+                    </ion-col>
+
+                    <ion-col col-10>
+                        <ion-item>
+                            <ion-range min="1" max="10" step="1" [(ngModel)]="volume.water" (ionChange)="updateVolume('water')">
+                                <ion-icon range-left small name="volume-down"></ion-icon>
+                                <ion-icon range-right name="volume-up"></ion-icon>
+                            </ion-range>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col col-2>
+                        <button #btn1 ion-fab color="{{isPlaying.wind ? 'secondary' : 'primary'}}" (click)="playSound('wind')">
+                            <ion-icon name="cloudy"></ion-icon>
+                        </button>
+                    </ion-col>
+
+                    <ion-col col-10>
+                        <ion-item>
+                            <ion-range min="1" max="10" step="1" [(ngModel)]="volume.wind" (ionChange)="updateVolume('wind')">
+                                <ion-icon range-left small name="volume-down"></ion-icon>
+                                <ion-icon range-right name="volume-up"></ion-icon>
+                            </ion-range>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+
+
+            </ion-grid>
+
+        </div>
+
+        <div *ngSwitchCase="'chords'">
+        </div>
+
+        <div *ngSwitchCase="'oscillator'">
+        </div>
+    </div>
+
+</ion-content>

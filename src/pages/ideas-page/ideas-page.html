@@ -1,0 +1,158 @@
+<ion-header class="{{!parentObj ? 'hide-back-button' : ''}}">
+
+    <ion-navbar class="force-back-button" color="primary">
+        <ion-title>
+            Get Ideas
+        </ion-title>
+        <ion-buttons left>
+            <button *ngIf="!parentObj" ion-button menuToggle icon-only>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="utils.openAmbientSounds()">
+                <ion-icon name="musical-notes" [style.color]="utils.isSoundPlaying ? 'orange' : 'inherit'"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+
+    <ion-toolbar no-border-top>
+        <ion-segment [(ngModel)]="ideasType">
+            <ion-segment-button value="words">
+                Feeling
+            </ion-segment-button>
+            <ion-segment-button value="rhymes">
+                Rhymes
+            </ion-segment-button>
+            <ion-segment-button value="dictionary">
+                Dictionary
+            </ion-segment-button>
+            <ion-segment-button value="myIdeas">
+                Favorites
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div [ngSwitch]="ideasType">
+
+        <ion-list *ngSwitchCase="'words'" style="text-align: center" class="scroll-content main-container">
+            <ion-list class="moodWordsList">
+                <ion-item-sliding *ngFor="let item of moodWordsList">
+                    <ion-item (click)="copyToClipboard(item.word)">
+                        <h2>{{item.word}}</h2>
+                    </ion-item>
+
+                    <ion-item-options>
+                        <button info (click)="addToFavorites(idea)">
+                            <ion-icon name="heart"></ion-icon>
+                            Add to Favorites
+                        </button>
+                    </ion-item-options>
+                </ion-item-sliding>
+            </ion-list>
+
+            <ion-grid class="themesGrid">
+                <ion-row>
+                    <ion-col col-3>
+                        <button ion-button color="{{currentMood === 'Calm' ? 'secondary' : 'primary'}}" (click)="onMoodInput('Calm')" strong>Calm</button>
+                    </ion-col>
+                    <ion-col col-3>
+                        <button ion-button color="{{currentMood === 'Dreamy' ? 'secondary' : 'primary'}}" (click)="onMoodInput('Dreamy')" strong>Dreamy</button>
+                    </ion-col>
+                    <ion-col col-3>
+                        <button ion-button color="{{currentMood === 'Excited' ? 'secondary' : 'primary'}}" (click)="onMoodInput('Excited')" strong>Excited</button>
+                    </ion-col>
+                    <ion-col col-3>
+                        <button ion-button color="{{currentMood === 'Happy' ? 'secondary' : 'primary'}}" (click)="onMoodInput('Happy')" strong>Happy</button>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col col-3>
+                        <button ion-button color="{{currentMood === 'Loving' ? 'secondary' : 'primary'}}" (click)="onMoodInput('Loving')" strong>Loving</button>
+                    </ion-col>
+                    <ion-col col-3>
+                        <button ion-button color="{{currentMood === 'Optimistic' ? 'secondary' : 'primary'}}" (click)="onMoodInput('Optimistic')"
+                            strong>Optimistic</button>
+                    </ion-col>
+                    <ion-col col-3>
+                        <button ion-button color="{{currentMood === 'Peaceful' ? 'secondary' : 'primary'}}" (click)="onMoodInput('Peaceful')" strong>Peaceful</button>
+                    </ion-col>
+                    <ion-col col-3>
+                        <button ion-button color="{{currentMood === 'Silly' ? 'secondary' : 'primary'}}" (click)="onMoodInput('Silly')" strong>Silly</button>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col col-3>
+                        <button ion-button color="{{currentMood === 'Angry' ? 'secondary' : 'primary'}}" (click)="onMoodInput('Angry')" strong>Angry</button>
+                    </ion-col>
+                    <ion-col col-3>
+                        <button ion-button color="{{currentMood === 'Annoyed' ? 'secondary' : 'primary'}}" (click)="onMoodInput('Annoyed')" strong>Annoyed</button>
+                    </ion-col>
+                    <ion-col col-3>
+                        <button ion-button color="{{currentMood === 'Depressed' ? 'secondary' : 'primary'}}" (click)="onMoodInput('Depressed')" strong>Depressed</button>
+                    </ion-col>
+                    <ion-col col-3>
+                        <button ion-button color="{{currentMood === 'Envious' ? 'secondary' : 'primary'}}" (click)="onMoodInput('Envious')" strong>Envious</button>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col col-3>
+                        <button ion-button color="{{currentMood === 'Guilty' ? 'secondary' : 'primary'}}" (click)="onMoodInput('Guilty')" strong>Guilty</button>
+                    </ion-col>
+                    <ion-col col-3>
+                        <button ion-button color="{{currentMood === 'Pessimistic' ? 'secondary' : 'primary'}}" (click)="onMoodInput('Pessimistic')"
+                            strong>Pessimistic</button>
+                    </ion-col>
+                    <ion-col col-3>
+                        <button ion-button color="{{currentMood === 'Rejected' ? 'secondary' : 'primary'}}" (click)="onMoodInput('Rejected')" strong>Rejected</button>
+                    </ion-col>
+                    <ion-col col-3>
+                        <button ion-button color="{{currentMood === 'Sad' ? 'secondary' : 'primary'}}" (click)="onMoodInput('Sad')" strong>Sad</button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'rhymes'">
+            <ion-searchbar debounce="300" [(ngModel)]="rhymeInput" [formControl]="rhymesControl" (ionInput)="onRhymeInput()" placeholder="Find Rhymes"
+                color="dark">
+            </ion-searchbar>
+
+            <ion-list class="rhymesList">
+                <ion-item-sliding *ngFor="let item of rhymes">
+                    <ion-item (click)="copyToClipboard(item.word)">
+                        <h2>{{item.word}}</h2>
+                    </ion-item>
+                </ion-item-sliding>
+            </ion-list>
+
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'dictionary'">
+            <ion-searchbar debounce="300" [(ngModel)]="dictionaryInput" [formControl]="dictionaryControl" (ionInput)="onDictionaryInput()" placeholder="Search"
+                color="dark">
+            </ion-searchbar>
+
+            <ion-list class="dictionaryList">
+                <ion-item-sliding *ngFor="let item of dictionary">
+                    <ion-item>
+                        <h2 class="definitionType">{{item.partOfSpeech}}</h2>
+                        <h2>{{item.text}}</h2>
+                    </ion-item>
+                </ion-item-sliding>
+            </ion-list>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'myIdeas'">
+            <ideas-manager></ideas-manager>
+        </ion-list>
+    </div>
+
+</ion-content>

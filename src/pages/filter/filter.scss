@@ -1,0 +1,26 @@
+page-filter {
+
+	.orderingList{
+		button{
+			width: 100%;	
+		}
+
+		.orderingType{
+			button{
+				height: 40px;
+			}	
+		}
+	}
+
+	ion-list-header.filterHeader{
+		margin-bottom: 0px;
+	    font-size: 1.3em;
+	}
+
+	.clearFilters{
+		width: 80%;
+	    margin: auto;
+	    min-width: 100px;
+	}
+
+}

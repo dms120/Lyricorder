@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-navbar class="force-back-button" color="primary" hideBackButton=false>
+        <ion-title>
+            {{lyric.title}}
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button icon-only (click)="toggleEdit()">
+                <ion-icon name="{{isPreview ? 'create' : 'checkmark'}}"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="addOrShare($event)">
+                <ion-icon name="{{isPreview ? 'more' : 'add'}}"></ion-icon>
+            </button>
+            <button ion-button icon-only (click)="parentObj.utils.openAmbientSounds()">
+                <ion-icon name="musical-notes" [style.color]="parentObj.utils.isSoundPlaying ? '#03a9f4' : 'inherit'"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content #lyricTabContent padding>
+    <div *ngIf="!isPreview" id="editorContainer" class="editorContainer">
+        <ion-item>
+            <ion-input placeholder="Title" type="text" [(ngModel)]="lyric.title"></ion-input>
+        </ion-item>
+        <ion-item class="textArea">
+            <textarea placeholder="Start writing" rows="15" type="text" style="width: 100%; border: none;" [(ngModel)]="lyric.text"></textarea>
+        </ion-item>
+    </div>
+
+    <div *ngIf="isPreview" id="previewContainer" #previewContainer class="{{isAudioComponentVisible ? 'extend' : ''}}">
+        <ion-card>
+            <ion-card-header class="previewHeader">
+                {{lyric.title}}
+            </ion-card-header>
+            <ion-card-content class="previewText">
+
+                <p class="song show-chords" [innerHTML]="previewText"></p>
+
+            </ion-card-content>
+        </ion-card>
+    </div>
+    <audio-recorder ion-fixed [lyric]="lyric" center style="bottom: inherit;" #audioRecorder></audio-recorder>
+
+</ion-content>

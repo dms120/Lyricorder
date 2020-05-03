@@ -1,0 +1,35 @@
+page-trash {
+    .titleTextHolder{
+        display: inline-block;
+        width: calc(100% - 60px);
+  
+        p.title{
+          font-size: 1.15em;
+          font-weight: bold;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+  
+        p.text{
+          width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+      .listDateHolder{
+          width: 45px;
+          display: inline-block;
+          float: right;
+          text-align: center;
+          font-weight: bold;
+  
+          p.dayMonth{
+            font-size: 0.75em;
+          }
+          p.year{
+            font-size: 0.8em;
+          }
+      
+      }
+
+}
