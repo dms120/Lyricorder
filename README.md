@@ -17,7 +17,7 @@ That means that a lot of things would be done different now, as always. Besides 
 
 ## TODOs
 
-* Authentication: With an authentication system we can provide synchronization funtionality to the user if using multiple devices. PouchDB was chosed for the synchronization hability.
+* Authentication: With an authentication system we can provide synchronization funtionality to the user if using multiple devices. PouchDB was chosen for the synchronization hability.
 * Add more options during edition like having a Chord selector helper.
 * Folders creation.
 * Give user the choice of character to highlight a chord. Currently is done using curly brackets.
