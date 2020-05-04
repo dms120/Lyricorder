@@ -20,6 +20,7 @@ That means that a lot of things would be done different now, as always. Besides 
 * Authentication: With an authentication system we can provide synchronization funtionality to the user if using multiple devices. PouchDB was chosed for the synchronization hability.
 * Add more options during edition like having a Chord selector helper.
 * Folders creation.
+* Give user the choice of character to highlight a chord. Currently is done using curly brackets.
 
 
 
@@ -42,7 +43,7 @@ For mobile deployment.
 ```
 ionic cordova build android --prod
 ```
-Never deployed it for iOS but i believe Ionic will handle it just right.
+Never deployed it on iOS but i believe Ionic will handle it just right.
 
 
 ## Built With
@@ -77,10 +78,10 @@ Options Menu  |  Text Options | Scroll Options
 <img src="images/OptionsMenu.png" width="200"/>  | <img src="images/TextOptions.png" width="200"/> | <img src="images/ScrollOptions.png" width="200"/>
 
 
+
 Lyric Edit mode - To define a chord use between curly brackets. Eg: {Am}
 
 <img src="images/LyricEditorEditing.png" width="400"/>
-
 
 Built-in player and recorder
 
@@ -90,7 +91,7 @@ Records List
 
 <img src="images/RecordsList.png" width="300"/>
 
-Song Properties tab - Tunning, Capo, Speed and Mood
+Song Properties tab - Tunning, Capo, Speed, Mood and Notes 
 
 <img src="images/SongProperties.png" width="300"/>
 
