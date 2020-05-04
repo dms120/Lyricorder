@@ -48,9 +48,19 @@ Built-in player for last recorded file
 
 <img src="images/MainScreenWithPlayer.png" width="300"/>
 
+Filtering and Ordering options
+
+<img src="images/Filter.png" width="400"/>
+
 Lyric View mode
 
 <img src="images/LyricEditor.png" width="300"/>
+
+
+Lyric Edit mode - To define a chord use between curly brackets. Eg: {Am}
+
+<img src="images/LyricEditorEditing.png" width="400"/>
+
 
 Built-in player and recorder
 
@@ -83,6 +93,10 @@ Environment Sounds - Set relaxing sounds that will keep playing while you write
 Side Screen
 
 <img src="images/SideScreen.png" width="300"/>
+
+Trash - The lyrics will be permanently deleted after the define period on settings 
+
+<img src="images/Trash.png" width="300"/>
 
 Settings
 
