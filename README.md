@@ -2,6 +2,8 @@
 
 Your Lyrics and Records made simple.
 
+<img src="images/ApresentationImage.png" width="600"/>
+
 ## Getting Started
 
 This project was created with learning purposes.
@@ -56,6 +58,10 @@ Lyric View mode
 
 <img src="images/LyricEditor.png" width="300"/>
 
+Options Menu            |  Text Options | Scroll Options
+:-------------------------:|:-------------------------:|:-------------------------:
+<img src="images/OptionsMenu.png" width="200"/>  | <img src="images/TextOptions.png" width="200"/> | <img src="images/ScrollOptions.png" width="200"/>
+
 
 Lyric Edit mode - To define a chord use between curly brackets. Eg: {Am}
 
@@ -70,7 +76,7 @@ Records List
 
 <img src="images/RecordsList.png" width="300"/>
 
-Song Properties tab
+Song Properties tab - Tunning, Capo, Speed and Mood
 
 <img src="images/SongProperties.png" width="300"/>
 
@@ -78,15 +84,15 @@ Ideas Tab - Feeling related words
 
 <img src="images/Ideas.png" width="300"/>
 
-Ideas Tab - Rhymes
+Ideas Tab - Rhymes - Find rhymes for a specific word
 
 <img src="images/Rhymes.png" width="300"/>
 
-Ideas Tab - Favorites
+Ideas Tab - Favorites - All the words can be favourited and will appear here
 
 <img src="images/FavouriteWords.png" width="300"/>
 
-Environment Sounds - Set relaxing sounds that will keep playing while you write
+Environment Sounds - Set relaxing sounds that will keep playing while you write and record
 
 <img src="images/EnvironmentSounds.png" width="300"/>
 
