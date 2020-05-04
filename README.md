@@ -31,8 +31,8 @@ ionic cordova build android --prod
 
 ## Built With
 
-* [Ionic v3](https://ionicframework.com/) 
-* [Angular v4](https://angular.io/) 
+* [Ionic 3](https://ionicframework.com/) 
+* [Angular 4](https://angular.io/) 
 * [PouchDB](https://pouchdb.com/)
 * [RecordRTC](https://recordrtc.org/)
 * [wavesurfer.js](https://wavesurfer-js.org/)
