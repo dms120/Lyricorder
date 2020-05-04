@@ -58,7 +58,7 @@ Lyric View mode
 
 <img src="images/LyricEditor.png" width="300"/>
 
-Options Menu            |  Text Options | Scroll Options
+Options Menu  |  Text Options | Scroll Options
 :-------------------------:|:-------------------------:|:-------------------------:
 <img src="images/OptionsMenu.png" width="200"/>  | <img src="images/TextOptions.png" width="200"/> | <img src="images/ScrollOptions.png" width="200"/>
 
@@ -100,7 +100,7 @@ Side Screen
 
 <img src="images/SideScreen.png" width="300"/>
 
-Trash - The lyrics will be permanently deleted after the define period on settings 
+Trash - The lyrics will be permanently deleted after the defined period on settings 
 
 <img src="images/Trash.png" width="300"/>
 
